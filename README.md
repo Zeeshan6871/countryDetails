@@ -51,7 +51,7 @@ Copy code
 cd ../frontend
 npm install
 npm start
-Access the application at http://localhost:3000.
+Access the application at http://localhost:5000.
 
 Usage
 Register a new user account or log in with existing credentials.
