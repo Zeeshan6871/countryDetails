@@ -17,6 +17,14 @@ This is a full-stack single-page application (SPA) built with React on the front
 - **Backend:** Node.js, Express.js, MongoDB, JWT
 - **Frontend:** React, Context API, React Router, Axios
 
+## Deployed Link
+
+-[countryApp](https://country-details-h445.vercel.app/)
+
+- credentials
+  username - zeeshan@123
+  password - 1234
+
 ## Setup Instructions
 
 1. Clone the repository:
