@@ -14,9 +14,12 @@ const Home = () => {
     const fetchHistory = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/history", {
-          headers: { "x-auth-token": token },
-        });
+        const response = await axios.get(
+          "https://countrydetails.onrender.com/api/history",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setHistory(response.data);
       } catch (error) {
         console.error("Error fetching history", error);
@@ -31,7 +34,7 @@ const Home = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:5000/api/countries/${currencyCode}`,
+        `https://countrydetails.onrender.com/api/countries/${currencyCode}`,
         {
           headers: { "x-auth-token": token },
         }
@@ -39,7 +42,7 @@ const Home = () => {
       setCountries(response.data);
 
       await axios.post(
-        "http://localhost:5000/api/history",
+        "https://countrydetails.onrender.com/api/history",
         { search: currencyCode },
         { headers: { "x-auth-token": token } }
       );
@@ -58,7 +61,7 @@ const Home = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/favorites",
+        "https://countrydetails.onrender.com/api/favorites",
         country,
         {
           headers: { "x-auth-token": token },
