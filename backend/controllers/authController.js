@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const config = require("../config");
+require("dotenv").config();
 
 exports.register = async (req, res) => {
   try {
@@ -23,9 +24,13 @@ exports.login = async (req, res) => {
     const isMatch = await user.comparePassword(password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
-    const token = jwt.sign({ id: user._id }, config.jwtSecret, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET_KEY ?? config.jwtSecret,
+      {
+        expiresIn: "1h",
+      }
+    );
     res.status(200).json({ token });
   } catch (error) {
     res.status(400).json({ error: "Error logging in" });

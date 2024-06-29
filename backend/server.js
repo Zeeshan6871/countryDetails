@@ -7,6 +7,7 @@ const countryRoutes = require("./routes/countryRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
 const historyRoutes = require("./routes/historyRoutes");
 const config = require("./config");
+require("dotenv").config();
 
 const app = express();
 
@@ -22,9 +23,12 @@ app.use("/api/history", historyRoutes);
 
 // Connect to MongoDB
 mongoose
-  .connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB_URL ?? config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
-
+// console.log(process.env.DB_URL);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
