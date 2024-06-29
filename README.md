@@ -22,8 +22,11 @@ This is a full-stack single-page application (SPA) built with React on the front
 -[countryApp](https://country-details-h445.vercel.app/)
 
 - credentials
+
+```bash
   username - zeeshan@123
   password - 1234
+```
 
 ## Setup Instructions
 
